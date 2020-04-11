@@ -7,7 +7,7 @@ class Application
     if req.path.match(/songs/)
  
       cart = req.path.split("/cart/").last
-      item = @@items.find{|s| s.title == cart}
+      items = @@items.find{|s| s.price == cart}
  
       resp.write cart.item
     else
