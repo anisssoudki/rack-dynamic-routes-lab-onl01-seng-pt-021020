@@ -4,12 +4,12 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
  
-    if req.path.match(/songs/)
+    if req.path.match(/items/)
  
-      cart = req.path.split("/cart/").last
-      price = @@items.find{|s| s.price == cart}
- 
-      resp.write item.price
+      item_name = req.path.split("/items/").last
+      name = @@items.find{|s| s.name == item_name}
+        if name !=nil 
+         resp.write name.price
     else
       resp.write "Route not found"
       resp.status = 404
