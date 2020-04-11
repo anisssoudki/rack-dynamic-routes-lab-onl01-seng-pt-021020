@@ -7,9 +7,9 @@ class Application
     if req.path.match(/songs/)
  
       cart = req.path.split("/cart/").last
-      items = @@items.find{|s| s.price == cart}
+      price = @@items.find{|s| s.price == cart}
  
-      resp.write cart.item
+      resp.write item.price
     else
       resp.write "Route not found"
       resp.status = 404
