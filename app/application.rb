@@ -9,7 +9,7 @@ class Application
       cart = req.path.split("/cart/").last
       item = @@items.find{|s| s.title == cart}
  
-      resp.write song.artist
+      resp.write cart.item
     else
       resp.write "Route not found"
       resp.status = 404
